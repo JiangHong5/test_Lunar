@@ -1,1 +1,20 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test of Lunar package</title>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.7.5/lunar.min.js"></script>
+        <div id = "out"></div>
+        <script>
+            let out = document.getElementById("out");
+            let date = Date.now();
+            var next_year = new Date(date).getFullYear() + 1;
+            var spring_festival = Lunar.fromYmd(next_year, 1, 1);
+            var lantern_festival = Lunar.fromYmd(next_year, 1, 15);
+            var spr_fes_solar = spring_festival.getSolar();
+            var lan_fes_solar = lantern_festival.getSolar();
+            out.innerHTML = `The Spring Festival in ${next_year} is on ${spr_fes_solar.toString()}<br>The Lantern Festival in ${next_year} is on ${lan_fes_solar.toString()}`;
+        </script>
+    </body>
+</html>
